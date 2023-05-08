@@ -36,9 +36,9 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     muscleDetails: {
-      backgroundColor: 'rgba(255,255,255,0.8)',
+      backgroundColor: 'rgba(255,255,255,1)',
       padding: theme.spacing(4),
-      borderRadius: theme.spacing(2),
+      borderRadius: theme.spacing(0.5),
       marginTop: theme.spacing(4),
       [theme.breakpoints.down('sm')]: {
         marginTop: theme.spacing(2),
@@ -185,7 +185,7 @@ const GymPage = () => {
           ))}
         </Grid>
       </Container>
-      <section style={{ paddingLeft: '2.5rem', paddingRight: '2.5rem' }}>{renderMuscleDetails()}</section>
+      <section style={{ paddingLeft: '2rem', paddingRight: '2rem' }}>{renderMuscleDetails()}</section>
     </div>
   );
 };
