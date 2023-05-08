@@ -26,17 +26,17 @@ export const useOpenAISearch = (query: string) => {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
       body: JSON.stringify({
-        documents: [query],
-        model: 'text-davinci-002',
-        search_model: 'ada',
-        max_rerank: 200,
-        query: 'gym and health',
-        file: 'search',
-        return_metadata: false,
+        model: 'gpt-3.5-turbo',
+        messages: [
+          {
+            role: 'user',
+            content: query,
+          },
+        ],
       }),
     };
 
-    fetch('https://api.openai.com/v1/search', requestOptions)
+    fetch('https://api.openai.com/v1/chat/completions', requestOptions)
       .then((response) => response.json())
       .then((data: IOpenAIResult) => {
         setResults(data.data.results);
